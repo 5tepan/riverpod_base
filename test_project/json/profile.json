@@ -1,0 +1,11 @@
+{
+    "name": "Иван Иванов",
+    "email": "test@example.com",
+    "phone": "+79991234567",
+    "dateOfBirth": 986981931,
+    "avatars": [
+      "https://avatars.mds.yandex.net/i?id=23c296194d68f649a57e380418384ba8e9082c6c-4034574-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=d7213f0f289e84f90d2d0281e4ae40ef8d5b1d1c-12461673-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=4262a19335636593cc94c3ad5d92a48b_l-5258850-images-thumbs&n=13"
+    ]
+  }

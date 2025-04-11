@@ -1,0 +1,26 @@
+[
+    {
+      "id": "1",
+      "name": "Electronics",
+      "productCount": 25,
+      "image": "https://avatars.mds.yandex.net/i?id=02f86151d03dc0fdf5c8c2c2a791972f_l-10414034-images-thumbs&n=13"
+    },
+    {
+      "id": "2",
+      "name": "Fashion",
+      "productCount": 30,
+      "image": "https://avatars.mds.yandex.net/i?id=02f86151d03dc0fdf5c8c2c2a791972f_l-10414034-images-thumbs&n=13"
+    },
+    {
+      "id": "3",
+      "name": "Home & Garden",
+      "productCount": 20,
+      "image": "https://avatars.mds.yandex.net/i?id=02f86151d03dc0fdf5c8c2c2a791972f_l-10414034-images-thumbs&n=13"
+    },
+    {
+      "id": "4",
+      "name": "Sports",
+      "productCount": 15,
+      "image": "https://avatars.mds.yandex.net/i?id=02f86151d03dc0fdf5c8c2c2a791972f_l-10414034-images-thumbs&n=13"
+    }
+  ]

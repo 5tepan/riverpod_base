@@ -1,0 +1,59 @@
+[
+    {
+      "id": "1",
+      "name": "Smartphone",
+      "image": "https://example.com/images/smartphone.jpg",
+      "description": "A high-quality smartphone with a 6.5-inch screen and 128GB of storage.",
+      "price": 299.99
+    },
+    {
+      "id": "2",
+      "name": "Laptop",
+      "image": "https://example.com/images/laptop.jpg",
+      "description": "A powerful laptop with Intel i7 processor, 16GB RAM, and 512GB SSD.",
+      "price": 799.99
+    },
+    {
+      "id": "3",
+      "name": "T-shirt",
+      "image": "https://example.com/images/tshirt.jpg",
+      "description": "A comfortable cotton T-shirt available in various colors and sizes.",
+      "price": 19.99
+    },
+    {
+      "id": "4",
+      "name": "Jeans",
+      "image": "https://example.com/images/jeans.jpg",
+      "description": "Stylish blue jeans, made with high-quality denim fabric.",
+      "price": 49.99
+    },
+    {
+      "id": "5",
+      "name": "Sofa",
+      "image": "https://example.com/images/sofa.jpg",
+      "description": "A modern 3-seater sofa, perfect for your living room. Comes in various colors.",
+      "price": 499.99
+    },
+    {
+      "id": "6",
+      "name": "Dining Table",
+      "image": "https://example.com/images/dining_table.jpg",
+      "description": "A spacious dining table with a natural wood finish. Seats up to 8 people.",
+      "price": 299.99
+    },
+    {
+      "id": "7",
+      "name": "Football",
+      "image": "https://example.com/images/football.jpg",
+      "description": "A high-quality football for both amateur and professional use.",
+      "price": 15.99
+    },
+    {
+      "id": "8",
+      "name": "Tennis Racket",
+      "image": "https://example.com/images/tennis_racket.jpg",
+      "description": "A durable tennis racket suitable for players of all skill levels.",
+      "price": 89.99
+    }
+  ]
+  

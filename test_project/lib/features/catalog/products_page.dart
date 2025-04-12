@@ -51,7 +51,7 @@ class _ProductsPageState extends BaseGridPageState<ProductsPage, Product> {
   Widget buildGridItem(BuildContext context, Product product, int index) {
     return ProductItem(
       product: product,
-      onTap: () => context.go(
+      onTap: () => context.push(
         ProductRoute(
           categoryId: widget.categoryId,
           productId: product.id,

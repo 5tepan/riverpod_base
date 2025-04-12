@@ -12,11 +12,11 @@ import 'package:test_project/features/catalog/presentation/controllers/product_d
 
 class ProductDetailPage extends BaseAsyncPage<ProductDetail> {
   final String productId;
-  final String productName;
+  final String? productName;
 
   const ProductDetailPage({
     required this.productId,
-    required this.productName,
+    this.productName,
     super.key,
   });
 
@@ -131,10 +131,13 @@ class _ProductDetailPageState
 
   @override
   Widget? buildAppBarTitle(BuildContext context) {
+    if (widget.productName == null) {
+      return null;
+    }
     return Align(
       alignment: Alignment.centerLeft,
       child: AutoSizeText(
-        widget.productName,
+        widget.productName!,
         maxLines: 2,
         minFontSize: 16,
         style: AppTextStyle.extraTitle,

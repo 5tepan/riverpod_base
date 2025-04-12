@@ -35,7 +35,7 @@ class _CatalogPageState extends BaseListPageState<CatalogPage, Category> {
   Widget buildListItem(BuildContext context, Category item, int index) {
     return CategoryItemWidget(
       category: item,
-      onTap: () => context.go(
+      onTap: () => context.push(
         CategoryRoute(categoryId: item.id).location,
         extra: item.name,
       ),

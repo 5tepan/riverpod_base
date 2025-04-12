@@ -7,23 +7,31 @@ import 'package:test_project/features/profile/router/profile_route.dart';
 
 part 'app_router.g.dart';
 
+class AppRouter {
+  static const String catalog = '/catalog';
+  static const String cart = '/cart';
+  static const String profile = '/profile';
+  static const String productDetail = 'product/:productId';
+  static const String category = 'category/:categoryId';
+}
+
 @TypedShellRoute<RootShellRoute>(
   routes: [
     TypedGoRoute<CatalogRoute>(
-      path: '/catalog',
+      path: AppRouter.catalog,
       routes: [
         TypedGoRoute<CategoryRoute>(
-          path: 'category/:categoryId',
+          path: AppRouter.category,
           routes: [
             TypedGoRoute<ProductRoute>(
-              path: 'product/:productId',
+              path: AppRouter.productDetail,
             ),
           ],
         ),
       ],
     ),
-    TypedGoRoute<CartRoute>(path: '/cart'),
-    TypedGoRoute<ProfileRoute>(path: '/profile'),
+    TypedGoRoute<CartRoute>(path: AppRouter.cart),
+    TypedGoRoute<ProfileRoute>(path: AppRouter.profile),
   ],
 )
 class RootShellRoute extends ShellRouteData {

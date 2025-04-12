@@ -48,6 +48,7 @@ class ProductRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
+    if (state.extra == null) return ProductDetailPage(productId: productId);
     final productName = state.extra as String;
     return ProductDetailPage(
       productId: productId,

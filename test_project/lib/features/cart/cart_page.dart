@@ -41,7 +41,7 @@ class _CartPageState extends BaseListPageState<CartPage, CartItem> {
     return CartItemWidget(
       item: item,
       onTap: () => context
-          .go(ProductRoute(categoryId: '-1', productId: item.id).location),
+          .push(ProductRoute(categoryId: '-1', productId: item.id).location),
       onRemove: () => cartController.remove(item.id),
       onIncrement: () => cartController.updateQuantity(
         item.id,

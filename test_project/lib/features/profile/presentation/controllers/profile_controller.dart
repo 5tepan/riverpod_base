@@ -1,47 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:test_project/core/base/base_controllers/base_async_controller.dart';
-import 'package:test_project/core/utils/error.dart';
-import 'package:test_project/core/utils/string_validator.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:test_project/features/profile/entities/user_profile.dart';
 import 'package:test_project/features/profile/data/profile_repository.dart';
+import 'package:test_project/core/utils/string_validator.dart';
+import 'package:test_project/core/utils/helpers/result_helper.dart';
 
-final profileControllerProvider =
-    AsyncNotifierProvider<ProfileController, UserProfile>(
-  ProfileController.new,
-);
+part 'profile_controller.g.dart';
 
-class ProfileController extends BaseAsyncNotifier<UserProfile> {
-  // Даты для выбора
+@riverpod
+class ProfileController extends _$ProfileController {
   DateTime maxDate = DateTime.now();
   DateTime minDate = DateTime(1900);
 
-  // Контроллеры для полей формы
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
-  // Дополнительное поле для даты рождения
   DateTime? _dateOfBirth;
-
   DateTime get dateOfBirth => _dateOfBirth ?? DateTime.now();
+
   final isChanged = ValueNotifier<bool>(false);
 
-  @override
-  Future<Result<UserProfile>> fetchResult() async {
-    final repo = ref.read(profileRepositoryProvider);
-    final result = await repo.fetch();
+  ProfileRepository get _repository => ref.read(profileRepositoryProvider);
 
-    // При успешной загрузке — заполняем контроллеры
+  @override
+  Future<UserProfile> build() async {
+    final result = await _repository.fetch();
+
     result.when(
       success: (user) {
         _prepareData(user);
         _addListeners(user);
       },
-      failure: (error, stackTrace) => null,
+      failure: (_, __) => null,
     );
 
-    return result;
+    return unwrapResult(result);
   }
 
   void _prepareData(UserProfile user) {
@@ -93,8 +87,6 @@ class ProfileController extends BaseAsyncNotifier<UserProfile> {
       state = AsyncData(updated);
     }
   }
-
-  // Валидаторы
 
   String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {

@@ -1,18 +1,17 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:test_project/core/base/base_controllers/base_async_controller.dart';
-import 'package:test_project/core/utils/error.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:test_project/features/catalog/data/category_repository.dart';
 import 'package:test_project/features/catalog/entities/category.dart';
+import 'package:test_project/core/utils/helpers/result_helper.dart';
 
-final categoryControllerProvider =
-    AsyncNotifierProvider<CategoryController, List<Category>>(
-  CategoryController.new,
-);
+part 'category_controller.g.dart';
 
-class CategoryController extends BaseAsyncNotifier<List<Category>> {
+@riverpod
+class CategoryController extends _$CategoryController {
+  CategoryRepository get _repository => ref.read(categoryRepositoryProvider);
+
   @override
-  Future<Result<List<Category>>> fetchResult() {
-    final repo = ref.read(categoryRepositoryProvider);
-    return repo.fetch();
+  Future<List<Category>> build() async {
+    final result = await _repository.fetch();
+    return unwrapResult(result);
   }
 }

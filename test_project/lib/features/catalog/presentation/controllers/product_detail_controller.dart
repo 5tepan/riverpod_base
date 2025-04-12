@@ -1,18 +1,16 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:test_project/core/base/base_controllers/base_async_family_controller.dart';
-import 'package:test_project/core/utils/error.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:test_project/features/catalog/data/product_detail_repository.dart';
 import 'package:test_project/features/catalog/entities/product_detail.dart';
+import 'package:test_project/core/utils/helpers/result_helper.dart';
 
-final productsDetailControllerProvider = AsyncNotifierProvider.autoDispose
-    .family<ProductsDetailController, ProductDetail, String>(
-        ProductsDetailController.new);
+part 'product_detail_controller.g.dart';
 
-class ProductsDetailController
-    extends BaseFamilyAsyncNotifier<ProductDetail, String> {
+@riverpod
+class ProductsDetailController extends _$ProductsDetailController {
   @override
-  Future<Result<ProductDetail>> fetchResult(String productId) {
-    final repo = ref.read(productDetailRepositoryProvider(productId));
-    return repo.fetch();
+  Future<ProductDetail> build(String productId) async {
+    final _repository = ref.read(productDetailRepositoryProvider(productId));
+    final result = await _repository.fetch();
+    return unwrapResult(result);
   }
 }

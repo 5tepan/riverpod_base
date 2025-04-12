@@ -29,6 +29,7 @@ class CustomBackButton extends StatelessWidget {
           AssetsCatalog.appBarLeading,
           height: 24,
           width: 24,
+          color: Colors.black,
         ),
       ),
     );

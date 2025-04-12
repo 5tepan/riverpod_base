@@ -96,7 +96,10 @@ class CartItemWidget extends StatelessWidget {
       spacing: 12,
       children: [
         ElevatedButton(
-          child: const Icon(Icons.remove),
+          child: const Icon(
+            Icons.remove,
+            color: AppColors.black,
+          ),
           onPressed: item.quantity > 1 ? onDecrement : onRemove,
         ),
         Text(
@@ -104,7 +107,10 @@ class CartItemWidget extends StatelessWidget {
           style: AppTextStyle.title,
         ),
         ElevatedButton(
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+            color: AppColors.black,
+          ),
           onPressed: onIncrement,
         ),
       ],

@@ -92,7 +92,7 @@ class _CartPageState extends BaseListPageState<CartPage, CartItem> {
           child: Text(
             'Очистить',
             style: AppTextStyle.title.copyWith(
-              color: AppColors.blue,
+              color: AppColors.black,
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_project/core/router/app_router.dart';
+import 'package:test_project/core/theme/theme_builder.dart';
 
 void main() {
   runApp(
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router,
       title: 'My App',
-      theme: ThemeData.light(),
+      theme: ThemeBuilder.themeData,
     );
   }
 }

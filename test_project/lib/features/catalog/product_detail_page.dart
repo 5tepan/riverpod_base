@@ -116,14 +116,20 @@ class _ProductDetailPageState
               cartController.updateQuantity(cartItem.id, cartItem.quantity - 1);
             }
           },
-          child: const Icon(Icons.remove),
+          child: const Icon(
+            Icons.remove,
+            color: AppColors.black,
+          ),
         ),
         Text('${cartItem.quantity}', style: AppTextStyle.title),
         ElevatedButton(
           onPressed: () {
             cartController.updateQuantity(cartItem.id, cartItem.quantity + 1);
           },
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+            color: AppColors.black,
+          ),
         ),
       ],
     );

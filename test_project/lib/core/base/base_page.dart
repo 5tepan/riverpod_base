@@ -48,7 +48,7 @@ abstract class BaseAsyncPageState<W extends BaseAsyncPage<T>, T>
       title: buildAppBarTitle(context),
       leading: buildAppBarLeading(context),
       actions: buildAppBarActions(context),
-      titleSpacing: canPop ? 0 : 16,
+      titleSpacing: canPop ? 0 : 12,
     );
   }
 

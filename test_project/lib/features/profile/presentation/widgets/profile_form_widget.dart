@@ -60,7 +60,6 @@ class ProfileFormWidget extends StatelessWidget {
       decoration: const InputDecoration(
         isDense: true,
         hintText: 'ФИО',
-        contentPadding: EdgeInsets.symmetric(vertical: 12.0),
       ),
       validator: controller.validateName,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -75,7 +74,6 @@ class ProfileFormWidget extends StatelessWidget {
       decoration: const InputDecoration(
         isDense: true,
         hintText: 'Email',
-        contentPadding: EdgeInsets.symmetric(vertical: 12.0),
       ),
       validator: controller.validateEmail,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -90,7 +88,6 @@ class ProfileFormWidget extends StatelessWidget {
       decoration: const InputDecoration(
         isDense: true,
         hintText: 'Номер телефона',
-        contentPadding: EdgeInsets.symmetric(vertical: 12.0),
       ),
       validator: controller.validatePhone,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -107,7 +104,6 @@ class ProfileFormWidget extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: 'Дата рождения',
         isDense: true,
-        contentPadding: EdgeInsets.only(top: 12.0),
       ),
       validator: controller.validateDate,
       onChanged: controller.setDateOfBirth,

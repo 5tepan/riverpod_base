@@ -103,38 +103,10 @@ class AppTextStyle {
     color: AppColors.onSecondaryColor,
   );
 
-  static const TextStyle body1 = TextStyle(
-    fontSize: 15,
-    color: AppColors.onSecondaryColor,
-  );
-  static const TextStyle body2 = TextStyle(
-    fontSize: 16,
-    color: AppColors.onSecondaryColor,
-  );
-  static const TextStyle body3 = TextStyle(
-    fontSize: 17,
-    color: AppColors.onSecondaryColor,
-  );
-
-  static TextStyle h2 = const TextStyle(
-    fontSize: 21,
-    color: AppColors.onSecondaryColor,
-  );
-
   static TextStyle hyperLink = const TextStyle(
     fontSize: 15,
     decoration: TextDecoration.underline,
     color: AppColors.secondaryColor,
-  );
-
-  static TextStyle small = const TextStyle(
-    fontSize: 13,
-    color: AppColors.onSecondaryColor,
-  );
-
-  static TextStyle small2 = const TextStyle(
-    fontSize: 11,
-    color: AppColors.onSecondaryColor,
   );
 }
 
@@ -154,8 +126,7 @@ class ThemeBuilder {
         systemNavigationBarIconBrightness: Brightness.light,
       );
 
-  ThemeData buildThemeData() {
-    final textTheme = _buildTextTheme();
+  static ThemeData get themeData {
     return ThemeData(
       useMaterial3: true,
       dialogBackgroundColor: AppColors.dialogBackground,
@@ -163,10 +134,10 @@ class ThemeBuilder {
       primaryColor: AppColors.primaryColor,
       textSelectionTheme: _buildTextSelectionThemeData(),
       appBarTheme: _buildAppBarTheme(),
-      textTheme: textTheme,
+      textTheme: _buildTextTheme(),
       elevatedButtonTheme: _buildElevatedButtonThemeData(),
       textButtonTheme: _buildTextButtonThemeData(),
-      inputDecorationTheme: _buildInputDecorationTheme(textTheme),
+      inputDecorationTheme: _buildInputDecorationTheme(_buildTextTheme()),
       floatingActionButtonTheme: _buildFloatingActionButtonThemeData(),
       colorScheme: ColorScheme.fromSwatch().copyWith(
         primary: AppColors.primaryColor,
@@ -184,7 +155,7 @@ class ThemeBuilder {
     );
   }
 
-  TextTheme _buildTextTheme() {
+  static TextTheme _buildTextTheme() {
     const textColor = AppColors.defaultText;
     return const TextTheme(
       displayLarge: TextStyle(
@@ -230,36 +201,35 @@ class ThemeBuilder {
     );
   }
 
-  TextSelectionThemeData _buildTextSelectionThemeData() {
+  static TextSelectionThemeData _buildTextSelectionThemeData() {
     return TextSelectionThemeData(
       cursorColor: AppColors.secondaryColor,
       selectionHandleColor: AppColors.secondaryColor.withValues(alpha: 0.7),
     );
   }
 
-  AppBarTheme _buildAppBarTheme() {
+  static AppBarTheme _buildAppBarTheme() {
     return const AppBarTheme(
       backgroundColor: AppColors.appBarBackground,
       elevation: 0,
     );
   }
 
-  ElevatedButtonThemeData _buildElevatedButtonThemeData() {
+  static ElevatedButtonThemeData _buildElevatedButtonThemeData() {
     return ElevatedButtonThemeData(
       style: ButtonStyle(
         padding: WidgetStateProperty.all(const EdgeInsets.all(12)),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         ),
-        minimumSize: WidgetStateProperty.all(const Size(48, 48)),
         backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.pressed)) {
-            return AppColors.primaryColor;
+            return AppColors.blue;
           }
           if (states.contains(WidgetState.disabled)) {
-            return AppColors.lightBlue;
+            return AppColors.grey;
           }
-          return AppColors.primaryColor;
+          return AppColors.blue;
         }),
         foregroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.pressed)) {
@@ -273,12 +243,11 @@ class ThemeBuilder {
         textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 19.0),
         ),
-        elevation: WidgetStateProperty.all(4.0),
       ),
     );
   }
 
-  TextButtonThemeData _buildTextButtonThemeData() {
+  static TextButtonThemeData _buildTextButtonThemeData() {
     return TextButtonThemeData(
       style: ButtonStyle(
         padding: WidgetStateProperty.all(const EdgeInsets.all(4)),
@@ -301,7 +270,7 @@ class ThemeBuilder {
     );
   }
 
-  InputDecorationTheme _buildInputDecorationTheme(TextTheme textTheme) {
+  static InputDecorationTheme _buildInputDecorationTheme(TextTheme textTheme) {
     final border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.0),
       borderSide: const BorderSide(
@@ -330,14 +299,14 @@ class ThemeBuilder {
     );
   }
 
-  FloatingActionButtonThemeData _buildFloatingActionButtonThemeData() {
+  static FloatingActionButtonThemeData _buildFloatingActionButtonThemeData() {
     return const FloatingActionButtonThemeData(
       foregroundColor: Colors.white,
       backgroundColor: AppColors.secondaryColor,
     );
   }
 
-  InputDecoration buildSearchInputDecoration() {
+  static InputDecoration buildSearchInputDecoration() {
     return const InputDecoration(
       filled: true,
       fillColor: AppColors.white,
@@ -348,7 +317,7 @@ class ThemeBuilder {
     );
   }
 
-  Theme buildDatePickerTheme({
+  static Theme buildDatePickerTheme({
     required Widget child,
   }) {
     return Theme(

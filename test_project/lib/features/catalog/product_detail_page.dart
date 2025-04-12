@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_project/core/base/base_page.dart';
@@ -11,9 +12,11 @@ import 'package:test_project/features/catalog/presentation/controllers/product_d
 
 class ProductDetailPage extends BaseAsyncPage<ProductDetail> {
   final String productId;
+  final String productName;
 
   const ProductDetailPage({
     required this.productId,
+    required this.productName,
     super.key,
   });
 
@@ -123,6 +126,19 @@ class _ProductDetailPageState
           child: const Icon(Icons.add),
         ),
       ],
+    );
+  }
+
+  @override
+  Widget? buildAppBarTitle(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: AutoSizeText(
+        widget.productName,
+        maxLines: 2,
+        minFontSize: 16,
+        style: AppTextStyle.extraTitle,
+      ),
     );
   }
 }

@@ -19,9 +19,13 @@ class CategoryRoute extends GoRouteData {
   });
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => ProductsPage(
-        categoryId: categoryId,
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    final categoryName = state.extra as String;
+    return ProductsPage(
+      categoryId: categoryId,
+      categoryName: categoryName,
+    );
+  }
 }
 
 class ProductRoute extends GoRouteData {
@@ -43,7 +47,11 @@ class ProductRoute extends GoRouteData {
   }
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => ProductDetailPage(
-        productId: productId,
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    final productName = state.extra as String;
+    return ProductDetailPage(
+      productId: productId,
+      productName: productName,
+    );
+  }
 }

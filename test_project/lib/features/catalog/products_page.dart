@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,10 +12,12 @@ import 'package:test_project/features/catalog/router/catalog_route.dart';
 
 class ProductsPage extends BaseGridPage<Product> {
   final String categoryId;
+  final String categoryName;
 
   const ProductsPage({
     super.key,
     required this.categoryId,
+    required this.categoryName,
   });
 
   @override
@@ -53,6 +56,7 @@ class _ProductsPageState extends BaseGridPageState<ProductsPage, Product> {
           categoryId: widget.categoryId,
           productId: product.id,
         ).location,
+        extra: product.name,
       ),
     );
   }
@@ -63,5 +67,18 @@ class _ProductsPageState extends BaseGridPageState<ProductsPage, Product> {
   @override
   Widget buildEmptyPlaceholder(BuildContext context) {
     return const Center(child: Text('Товары в этой категории отсутствуют'));
+  }
+
+  @override
+  Widget? buildAppBarTitle(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: AutoSizeText(
+        widget.categoryName,
+        maxLines: 2,
+        minFontSize: 16,
+        style: AppTextStyle.extraTitle,
+      ),
+    );
   }
 }

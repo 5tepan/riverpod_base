@@ -42,7 +42,7 @@ class _ProductsPageState extends BaseGridPageState<ProductsPage, Product> {
   double get fixedTopHeightItemRatio => 1.125;
 
   @override
-  double get fixedBottomItemHeight => 75;
+  double get fixedBottomItemHeight => 87;
 
   @override
   ProviderBase<AsyncValue<List<Product>>> get provider =>

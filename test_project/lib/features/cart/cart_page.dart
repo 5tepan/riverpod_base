@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/base_list_view_page.dart';
+import 'package:test_project/core/base/base_page.dart';
 import 'package:test_project/core/base/widgets/base_alert_dialog.dart';
 import 'package:test_project/core/base/widgets/card_widget.dart';
 import 'package:test_project/core/router/app_router.dart';
@@ -14,14 +15,14 @@ import 'package:test_project/features/cart/presentation/controllers/total_price_
 import 'package:test_project/features/cart/presentation/widgets/cart_item_widget.dart';
 import 'package:test_project/features/catalog/router/catalog_route.dart';
 
-class CartPage extends BaseListPage<CartItem> {
+class CartPage extends BaseAsyncPage {
   const CartPage({
     super.key,
     super.title = 'Корзина',
   });
 
   @override
-  ConsumerState<CartPage> createState() => _CartPageState();
+  _CartPageState createState() => _CartPageState();
 }
 
 class _CartPageState extends BaseListPageState<CartPage, CartItem> {

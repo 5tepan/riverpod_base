@@ -10,7 +10,7 @@ import 'package:test_project/features/cart/presentation/controllers/cart_control
 import 'package:test_project/features/catalog/entities/product_detail.dart';
 import 'package:test_project/features/catalog/presentation/controllers/product_detail_controller.dart';
 
-class ProductDetailPage extends BaseAsyncPage<ProductDetail> {
+class ProductDetailPage extends BaseAsyncPage {
   final String productId;
   final String? productName;
 
@@ -21,7 +21,7 @@ class ProductDetailPage extends BaseAsyncPage<ProductDetail> {
   });
 
   @override
-  ConsumerState<ProductDetailPage> createState() => _ProductDetailPageState();
+  _ProductDetailPageState createState() => _ProductDetailPageState();
 }
 
 class _ProductDetailPageState

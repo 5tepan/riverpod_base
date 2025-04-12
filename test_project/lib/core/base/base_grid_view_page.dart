@@ -3,16 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_project/core/base/base_page.dart';
 import 'package:test_project/core/utils/mixins/calculate_grid_mixin.dart';
 
-/// Базовая страница с GridView
-abstract class BaseGridPage<T> extends BaseAsyncPage<List<T>> {
-  const BaseGridPage({
-    super.key,
-    super.title,
-  });
-}
-
 /// Базовое состояние для страницы с GridView
-abstract class BaseGridPageState<W extends BaseGridPage<T>, T>
+abstract class BaseGridPageState<W extends BaseAsyncPage, T>
     extends BaseAsyncPageState<W, List<T>> with CalculateGridMixin {
   double screenWidth = 0;
 

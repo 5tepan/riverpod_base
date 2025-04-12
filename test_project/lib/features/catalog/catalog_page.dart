@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/base_list_view_page.dart';
+import 'package:test_project/core/base/base_page.dart';
 import 'package:test_project/core/router/app_router.dart';
 import 'package:test_project/core/theme/theme_builder.dart';
 import 'package:test_project/features/catalog/entities/category.dart';
@@ -10,14 +11,14 @@ import 'package:test_project/features/catalog/presentation/controllers/category_
 import 'package:test_project/features/catalog/presentation/widgets/category_item_widget.dart';
 import 'package:test_project/features/catalog/router/catalog_route.dart';
 
-class CatalogPage extends BaseListPage<Category> {
+class CatalogPage extends BaseAsyncPage {
   const CatalogPage({
     super.key,
     super.title = 'Каталог',
   });
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _CatalogPageState();
+  _CatalogPageState createState() => _CatalogPageState();
 }
 
 class _CatalogPageState extends BaseListPageState<CatalogPage, Category> {

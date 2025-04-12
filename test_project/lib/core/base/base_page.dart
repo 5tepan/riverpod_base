@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/widgets/custom_back_button.dart';
 import 'package:test_project/core/theme/theme_builder.dart';
 
-abstract class BaseAsyncPage<T> extends ConsumerStatefulWidget {
+abstract class BaseAsyncPage extends ConsumerStatefulWidget {
   final String? title;
 
   const BaseAsyncPage({
@@ -15,7 +15,7 @@ abstract class BaseAsyncPage<T> extends ConsumerStatefulWidget {
   });
 }
 
-abstract class BaseAsyncPageState<W extends BaseAsyncPage<T>, T>
+abstract class BaseAsyncPageState<W extends BaseAsyncPage, T>
     extends ConsumerState<W> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool canPop = false;
@@ -23,7 +23,7 @@ abstract class BaseAsyncPageState<W extends BaseAsyncPage<T>, T>
   @override
   void initState() {
     super.initState();
-    canPop = GoRouter.of(context).canPop();
+    canPop = context.canPop();
   }
 
   Color? backgroundColor() => AppColors.backgroundColor;

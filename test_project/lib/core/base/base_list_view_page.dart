@@ -2,16 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_project/core/base/base_page.dart';
 
-/// Базовый виджет для страницы со списком
-abstract class BaseListPage<T> extends BaseAsyncPage<List<T>> {
-  const BaseListPage({
-    super.key,
-    super.title,
-  });
-}
-
 /// Базовое состояние для страницы со списком
-abstract class BaseListPageState<W extends BaseListPage<T>, T>
+abstract class BaseListPageState<W extends BaseAsyncPage, T>
     extends BaseAsyncPageState<W, List<T>> {
   bool isFooterFixed = false;
 

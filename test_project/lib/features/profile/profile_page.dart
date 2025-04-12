@@ -6,14 +6,14 @@ import 'package:test_project/features/profile/entities/user_profile.dart';
 import 'package:test_project/features/profile/presentation/controllers/profile_controller.dart';
 import 'package:test_project/features/profile/presentation/widgets/profile_form_widget.dart';
 
-class ProfilePage extends BaseAsyncPage<UserProfile> {
+class ProfilePage extends BaseAsyncPage {
   const ProfilePage({
     super.key,
     super.title = 'Профиль',
   });
 
   @override
-  ConsumerState<ProfilePage> createState() => _ProfilePageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends BaseAsyncPageState<ProfilePage, UserProfile> {

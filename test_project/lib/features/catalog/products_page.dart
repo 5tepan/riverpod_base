@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/base_grid_view_page.dart';
+import 'package:test_project/core/base/base_page.dart';
 import 'package:test_project/core/router/app_router.dart';
 import 'package:test_project/core/theme/theme_builder.dart';
 import 'package:test_project/features/catalog/entities/product.dart';
@@ -10,7 +11,7 @@ import 'package:test_project/features/catalog/presentation/controllers/products_
 import 'package:test_project/features/catalog/presentation/widgets/product_item_widget.dart';
 import 'package:test_project/features/catalog/router/catalog_route.dart';
 
-class ProductsPage extends BaseGridPage<Product> {
+class ProductsPage extends BaseAsyncPage {
   final String categoryId;
   final String categoryName;
 
@@ -21,7 +22,7 @@ class ProductsPage extends BaseGridPage<Product> {
   });
 
   @override
-  ConsumerState<ProductsPage> createState() => _ProductsPageState();
+  _ProductsPageState createState() => _ProductsPageState();
 }
 
 class _ProductsPageState extends BaseGridPageState<ProductsPage, Product> {

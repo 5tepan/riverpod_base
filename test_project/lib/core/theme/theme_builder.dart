@@ -98,7 +98,7 @@ class AppTextStyle {
   );
 
   static const TextStyle body = TextStyle(
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.onSecondaryColor,
   );
@@ -310,7 +310,6 @@ class ThemeBuilder {
     return const InputDecoration(
       filled: true,
       fillColor: AppColors.white,
-      contentPadding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 16),
       border: InputBorder.none,
       hintStyle: TextStyle(color: AppColors.hint),
       errorMaxLines: 1,

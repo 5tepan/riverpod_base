@@ -16,14 +16,18 @@ RouteBase get $rootShellRoute => ShellRouteData.$route(
         GoRouteData.$route(
           path: '/catalog',
           factory: $CatalogRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: '/catalog/category/:categoryId',
-          factory: $CategoryRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: '/catalog/product/:productId',
-          factory: $ProductRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'category/:categoryId',
+              factory: $CategoryRouteExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'product/:productId',
+                  factory: $ProductRouteExtension._fromState,
+                ),
+              ],
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: '/cart',
@@ -79,15 +83,12 @@ extension $CategoryRouteExtension on CategoryRoute {
 
 extension $ProductRouteExtension on ProductRoute {
   static ProductRoute _fromState(GoRouterState state) => ProductRoute(
+        categoryId: state.pathParameters['categoryId']!,
         productId: state.pathParameters['productId']!,
-        categoryId: state.uri.queryParameters['category-id']!,
       );
 
   String get location => GoRouteData.$location(
-        '/catalog/product/${Uri.encodeComponent(productId)}',
-        queryParams: {
-          'category-id': categoryId,
-        },
+        '/catalog/category/${Uri.encodeComponent(categoryId)}/product/${Uri.encodeComponent(productId)}',
       );
 
   void go(BuildContext context) => context.go(location);

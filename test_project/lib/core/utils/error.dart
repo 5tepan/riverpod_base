@@ -1,3 +1,4 @@
+//Шаблон “Algebraic Data Type (ADT)”
 sealed class Result<T> {
   const Result();
 

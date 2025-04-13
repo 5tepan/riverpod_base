@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/bottom_navigation/bottom_navigation_item.dart';
+import 'package:test_project/core/base/widgets/bottom_navigation_cart_bage.dart';
 
 final bottomNavIndexProvider =
     StateProvider<int>((ref) => BottomNavigationItem.catalog.value);
@@ -44,8 +45,22 @@ class BottomNavigationPage extends ConsumerWidget {
 
   List<BottomNavigationBarItem> _navBarItems() {
     return BottomNavigationItem.values.map((item) {
+      final isCart = item == BottomNavigationItem.cart;
+
       return BottomNavigationBarItem(
-        icon: Icon(item.tabIcon),
+        icon: isCart
+            ? Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Icon(item.tabIcon),
+                  Positioned(
+                    right: -11,
+                    top: -8,
+                    child: BottomNavigationCartBage(),
+                  ),
+                ],
+              )
+            : Icon(item.tabIcon),
         label: item.tabLabel,
       );
     }).toList();

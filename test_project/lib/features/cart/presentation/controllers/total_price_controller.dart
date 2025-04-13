@@ -1,16 +1,18 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:test_project/features/cart/data/data/db.dart';
 import 'package:test_project/features/cart/presentation/controllers/cart_controller.dart';
 
-final totalPriceProvider = Provider<double>(
-  (ref) {
-    final cartState = ref.watch(cartControllerProvider);
+part 'total_price_controller.g.dart';
 
-    return cartState.maybeWhen(
-      data: (items) => items.fold(
-        0,
-        (sum, item) => sum + item.price * item.quantity,
-      ),
-      orElse: () => 0,
+@riverpod
+double totalPrice(ref) {
+  final cartState = ref.watch(cartControllerProvider);
+
+  if (cartState is AsyncData<List<CartItem>>) {
+    return cartState.value.fold(
+      0.0,
+      (sum, item) => sum + item.price * item.quantity,
     );
-  },
-);
+  }
+  return 0.0;
+}

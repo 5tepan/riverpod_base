@@ -2,6 +2,7 @@ import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:test_project/core/base/widgets/card_widget.dart';
+import 'package:test_project/core/theme/theme_builder.dart';
 import 'package:test_project/features/profile/entities/user_profile.dart';
 import 'package:test_project/features/profile/presentation/controllers/profile_controller.dart';
 import 'package:test_project/features/profile/presentation/widgets/user_image_carousel_widget.dart';
@@ -99,11 +100,16 @@ class ProfileFormWidget extends StatelessWidget {
       initialValue: user.dateOfBirth,
       firstDate: controller.minDate,
       lastDate: controller.maxDate,
+      style: AppTextStyle.body.copyWith(
+        color: AppColors.defaultText,
+        fontWeight: FontWeight.bold,
+      ),
       mode: DateTimeFieldPickerMode.date,
       dateFormat: DateFormat("dd.MM.yyyy"),
       decoration: const InputDecoration(
         hintText: 'Дата рождения',
         isDense: true,
+        constraints: BoxConstraints(maxHeight: 41),
       ),
       validator: controller.validateDate,
       onChanged: controller.setDateOfBirth,

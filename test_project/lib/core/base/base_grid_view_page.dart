@@ -23,10 +23,10 @@ abstract class BaseGridPageState<W extends BaseAsyncPage, T>
   /// Построение отдельного элемента грида
   Widget buildGridItem(BuildContext context, T item, int index);
 
-  /// Колонтитул (опционально)
+  /// Шапка списка (опционально)
   Widget? buildHeader(BuildContext context) => null;
 
-  /// Шапка списка (опционально)
+  /// Колонтитул (опционально)
   Widget? buildFooter(BuildContext context) => null;
 
   /// Отображение пустого состояния

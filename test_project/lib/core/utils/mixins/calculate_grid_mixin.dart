@@ -1,3 +1,4 @@
+/// Калькулятор размеров для GridView
 mixin CalculateGridMixin {
   double get gridWidth => 200.0;
 

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:test_project/core/base/widgets/custom_back_button.dart';
 import 'package:test_project/core/theme/theme_builder.dart';
 
+/// Базовый экран от корого наследуются все экраны в приложении
 abstract class BaseAsyncPage extends ConsumerStatefulWidget {
   final String? title;
 
@@ -15,6 +16,7 @@ abstract class BaseAsyncPage extends ConsumerStatefulWidget {
   });
 }
 
+/// Базовое состояние для экранов от корого наследуются все экраны в приложении
 abstract class BaseAsyncPageState<W extends BaseAsyncPage, T>
     extends ConsumerState<W> {
   final scaffoldKey = GlobalKey<ScaffoldState>();

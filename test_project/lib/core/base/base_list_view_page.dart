@@ -16,10 +16,10 @@ abstract class BaseListPageState<W extends BaseAsyncPage, T>
   /// Построение отдельного элемента списка
   Widget buildListItem(BuildContext context, T item, int index);
 
-  /// Колонтитул (опционально)
+  /// Шапка списка (опционально)
   Widget? buildHeader(BuildContext context) => null;
 
-  /// Шапка списка (опционально)
+  /// Колонтитул (опционально)
   Widget? buildFooter(BuildContext context) => null;
 
   /// Разделители между элементами
@@ -57,8 +57,6 @@ abstract class BaseListPageState<W extends BaseAsyncPage, T>
         },
         itemBuilder: (context, index) {
           final headerOffset = hasHeader ? 1 : 0;
-          // final footerOffset = (hasFooter && !isFooterFixed) ? 1 : 0;
-
           if (hasHeader && index == 0) return buildHeader(context)!;
           if (hasFooter &&
               !isFooterFixed &&

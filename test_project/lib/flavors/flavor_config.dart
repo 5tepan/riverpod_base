@@ -1,3 +1,4 @@
+/// Перечисление вариантов сборки (реализован пока что только dev)
 enum Flavor { dev, prod }
 
 class FlavorConfig {
